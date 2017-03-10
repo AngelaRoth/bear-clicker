@@ -8,14 +8,14 @@ body {
   font-family: Times, "Times New Roman", serif;
 }
 
-.bearContainers {
+#allBears {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
 }
 
-.container {
+.bearContainer {
   padding: 25px;
   background-color: #F7A607;
   min-width: 33%;
