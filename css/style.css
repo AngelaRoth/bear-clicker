@@ -1,11 +1,15 @@
 * {box-sizing:border-box;}
 
 body {
-  margin-top: 25px;
+  margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  max-width: 800px;
+  max-width: 900px;
   font-family: Times, "Times New Roman", serif;
+}
+
+h1 {
+  text-align: center;
 }
 
 #allBears {
@@ -15,18 +19,25 @@ body {
   align-items: center;
 }
 
-.bearContainer {
-  padding: 25px;
-  background-color: #F7A607;
-  min-width: 33%;
+.bearZone {
+  padding: 15px;
+  background-color: grey;
+}
 
+.bearContainer {
+  padding: 5px 25px;
+  margin: 7px;
+  background-color: #F7A607;
+/*
+min-width: 33%;
+ */
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
 
 .count {
-  font-size: 18pt;
+  font-size: 16pt;
 }
 
 .fiveClick {
