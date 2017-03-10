@@ -1,6 +1,6 @@
-var bear = document.getElementById('bear');
-var count = document.getElementById('count');
-var outside = document.getElementById('outside');
+var bear = document.getElementById('bear1');
+var count = document.getElementById('count1');
+var outside = document.getElementById('container1');
 var counter = 0;
 
 bear.addEventListener('click', function(){
