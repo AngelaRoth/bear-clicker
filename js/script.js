@@ -5,6 +5,8 @@ var Bear = function(name, i) {
   this.img = 'images/' + name + '.jpg';
   this.name = name;
   this.clicks = 0;
+  this.inlist = false;
+  this.visible = false;
 
   this.listItem = document.createElement('li');
   this.listItem.innerHTML = this.name;
@@ -46,7 +48,15 @@ Bear.prototype.enterList = function() {
 }
 
 function bearChosen(i) {
-  bearArray[i].enterHTML();
+  if (bearArray[i].inlist === false) {
+    bearArray[i].inlist = true;
+    bearArray[i].enterHTML();
+  } else {
+    bearArray[i].inlist = false;
+    var element = bearArray[i];
+    element.outerHTML = "";
+    delete element;
+  }
 }
 
 function bearClicked(i) {
