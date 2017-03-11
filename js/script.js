@@ -4,8 +4,7 @@ var bearList = document.getElementById('bearList');
 var Bear = function(name, i) {
   this.img = 'images/' + name + '.jpg';
   this.name = name;
-  this.clicks = 1;
-  this.visible = false;
+  this.clicks = 0;
 
   this.listItem = document.createElement('li');
   this.listItem.innerHTML = this.name;
@@ -28,7 +27,7 @@ var Bear = function(name, i) {
   this.countPara = document.createElement('p');
   this.countPara.id = 'count' + i;
   this.countPara.className = 'count';
-  this.countPara.innerHTML = this.clicks + ' Clicks';
+  this.countPara.innerHTML = this.clicks + ' Salmon';
 
   this.container = document.createElement('div');
   this.container.className = 'bearContainer';
@@ -51,9 +50,10 @@ Bear.prototype.leaveHTML = function() {
 }
 
 function bearChosen(i) {
-  if (bearArray[i].visible === false) {
-    bearArray[i].visible = true;
+  if (bearArray[i] !== currentBear) {
+    currentBear.leaveHTML();
     bearArray[i].enterHTML();
+    currentBear = bearArray[i];
   } else {
     bearClicked(i);
   }
@@ -61,7 +61,7 @@ function bearChosen(i) {
 
 function bearClicked(i) {
   bearArray[i].clicks ++;
-  bearArray[i].countPara.innerHTML = bearArray[i].clicks + ' Clicks';
+  bearArray[i].countPara.innerHTML = bearArray[i].clicks + ' Salmon';
 
   if (bearArray[i].clicks % 5 === 0) {
     bearArray[i].container.classList.add('fiveClick');
@@ -78,6 +78,7 @@ var bearArray = [];
 for (var i = 0; i < numBears; i++) {
   bearArray[i] = new Bear(nameArray[i], i);
   bearArray[i].enterList();
-  /*bearArray[i].enterHTML();*/
 }
 
+bearArray[0].enterHTML();
+var currentBear = bearArray[0];
