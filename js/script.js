@@ -4,7 +4,7 @@ var bearList = document.getElementById('bearList');
 var Bear = function(name, i) {
   this.img = 'images/' + name + '.jpg';
   this.name = name;
-  this.clicks = 0;
+  this.clicks = 1;
   this.visible = false;
 
   this.listItem = document.createElement('li');
@@ -55,8 +55,7 @@ function bearChosen(i) {
     bearArray[i].visible = true;
     bearArray[i].enterHTML();
   } else {
-    bearArray[i].visible = false;
-    bearArray[i].leaveHTML();
+    bearClicked(i);
   }
 }
 
