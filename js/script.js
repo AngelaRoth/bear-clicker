@@ -1,9 +1,17 @@
 var allBears = document.getElementById('allBears');
+var bearList = document.getElementById('bearList');
 
 var Bear = function(name, i) {
   this.img = 'images/' + name + '.jpg';
   this.name = name;
   this.clicks = 0;
+
+  this.listItem = document.createElement('li');
+  this.listItem.innerHTML = this.name;
+  this.listItem.addEventListener('click', function() {
+    bearChosen(i);
+  });
+
 
   this.nameElem = document.createElement('h2');
   this.nameElem.innerHTML = this.name;
@@ -12,7 +20,6 @@ var Bear = function(name, i) {
   this.imgElem.id = 'bear' + i;
   this.imgElem.src = this.img;
   this.imgElem.alt = this.name;
-
   this.imgElem.addEventListener('click', function() {
     bearClicked(i);
   });
@@ -34,6 +41,14 @@ Bear.prototype.enterHTML = function() {
   allBears.appendChild(this.container);
 };
 
+Bear.prototype.enterList = function() {
+  bearList.appendChild(this.listItem);
+}
+
+function bearChosen(i) {
+  bearArray[i].enterHTML();
+}
+
 function bearClicked(i) {
   bearArray[i].clicks ++;
   bearArray[i].countPara.innerHTML = bearArray[i].clicks + ' Clicks';
@@ -52,6 +67,7 @@ var bearArray = [];
 
 for (var i = 0; i < numBears; i++) {
   bearArray[i] = new Bear(nameArray[i], i);
-  bearArray[i].enterHTML();
+  bearArray[i].enterList();
+  /*bearArray[i].enterHTML();*/
 }
 
