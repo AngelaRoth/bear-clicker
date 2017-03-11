@@ -35,6 +35,12 @@ body {
   width: 20%;
 }
 
+li {
+  padding: 5px;
+  margin: 7px 0;
+  background-color: #D62828;
+}
+
 #allBears {
   display: flex;
   flex-flow: row wrap;
