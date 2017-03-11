@@ -5,7 +5,6 @@ var Bear = function(name, i) {
   this.img = 'images/' + name + '.jpg';
   this.name = name;
   this.clicks = 0;
-  this.inlist = false;
   this.visible = false;
 
   this.listItem = document.createElement('li');
@@ -36,6 +35,10 @@ var Bear = function(name, i) {
 
 };
 
+Bear.prototype.enterList = function() {
+  bearList.appendChild(this.listItem);
+}
+
 Bear.prototype.enterHTML = function() {
   this.container.appendChild(this.nameElem);
   this.container.appendChild(this.imgElem);
@@ -43,19 +46,17 @@ Bear.prototype.enterHTML = function() {
   allBears.appendChild(this.container);
 };
 
-Bear.prototype.enterList = function() {
-  bearList.appendChild(this.listItem);
+Bear.prototype.leaveHTML = function() {
+  allBears.removeChild(this.container);
 }
 
 function bearChosen(i) {
-  if (bearArray[i].inlist === false) {
-    bearArray[i].inlist = true;
+  if (bearArray[i].visible === false) {
+    bearArray[i].visible = true;
     bearArray[i].enterHTML();
   } else {
-    bearArray[i].inlist = false;
-    var element = bearArray[i];
-    element.outerHTML = "";
-    delete element;
+    bearArray[i].visible = false;
+    bearArray[i].leaveHTML();
   }
 }
 
