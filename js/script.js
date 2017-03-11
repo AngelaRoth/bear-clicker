@@ -71,7 +71,7 @@ function bearClicked(i) {
 }
 
 
-var nameArray = ['vonGrizzmon', 'Fuzzy', 'Whitey', 'Zeke', 'Vera'];
+var nameArray = ['vonGrizzmon', 'Fuzzy', 'Whitey', 'Vera', 'Zeke', 'Moz', 'Splash', 'Colleen'];
 var numBears = nameArray.length;
 var bearArray = [];
 
